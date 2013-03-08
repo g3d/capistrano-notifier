@@ -96,7 +96,7 @@ class Capistrano::Notifier::Mail < Capistrano::Notifier::Base
   end
 
   def github_prefix
-    "https://#{git_provider}/#{github}"
+    "#{git_provider}/#{github}"
   end
 
   def github
@@ -104,7 +104,7 @@ class Capistrano::Notifier::Mail < Capistrano::Notifier::Base
   end
 
   def git_provider
-    cap.notifier_mail_options[:git_provider] || 'github.com'
+    cap.notifier_mail_options[:git_provider] || 'https://github.com'
   end
 
   def html
