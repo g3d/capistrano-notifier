@@ -79,6 +79,7 @@ class Capistrano::Notifier::Mail < Capistrano::Notifier::Base
       #{now.strftime("%I:%M %p %Z")}
 
       #{git_range}
+
       #{git_log}
     BODY
   end
@@ -104,7 +105,7 @@ class Capistrano::Notifier::Mail < Capistrano::Notifier::Base
   end
 
   def gitprovider
-    cap.notifier_mail_options[:gitprovider]
+    cap.notifier_mail_options[:gitprovider] || 'https://github.com'
   end
 
   def html
